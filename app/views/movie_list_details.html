@@ -1,0 +1,210 @@
+<div ng-controller="CinemaCtrl" ng-cloak="" class="carddemoBasicUsage" ng-app="locationAnalyticsApp">
+
+  <md-toolbar class="md-accent">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">{{movieList[1].title}}</h2>
+    </div>
+  </md-toolbar>
+  <md-button class="md-raised md-primary" href="#/movie?latitude=52.510859&longitude=13.327609">Back</md-button>
+
+  <div ng-cloak>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Details">
+          <table>
+            <tr>
+              <td><img src="{{movieList[1].poster}}"></td>
+              <td style="padding-left:1em">
+                <!--{{loadList}}-->
+                <ul style="padding:0">
+                  <li style="list-style: none"><strong>Genre: </strong>{{movieList[1].genre}}</li>
+                  <li style="list-style: none"><strong>Producer: </strong>{{movieList[1].producer}}</li>
+                  <li style="list-style: none"><strong>Language: </strong>{{loadList[1].session.language}}</li>
+                  <li style="list-style: none"><strong>Duration: </strong>{{movieList[1].duration}}</li>
+                  <li style="list-style: none"><strong>Trailer: </strong> <a href="{{movieList[1].trailer}}" target="_blank">Watch trailer!</a></li>
+                </ul>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </md-tab>
+
+        <md-tab label="Plan 1">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Plan 1</h1>
+            <table>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">camera_roll </md-icon></td>
+                <td>{{loadList[0].cinema.name}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[0].cinema.address}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[0].cinema.telephone}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[0].cinema.url}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">restaurant_menu </md-icon></td>
+
+                <td ><a href="" ng-click="showAdvanced($event)">Hard Rock Cafe</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">directions </md-icon></td>
+                <td><a href="#/transport">Trip</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">access_time </md-icon></td>
+                <td>{{loadList[0].session.sessionStartTime}}</td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+        <md-tab label="Plan 2">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Plan 2</h1>
+            <table>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">camera_roll </md-icon></td>
+                <td>{{loadList[1].cinema.name}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[1].cinema.address}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[1].cinema.telephone}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[1].cinema.url}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">restaurant_menu </md-icon></td>
+                <td>{{loadList[1].restaurant.name}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">directions </md-icon></td>
+                <td><a href="/transport.html">Trip</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">access_time </md-icon></td>
+                <td>{{loadList[1].session.sessionStartTime}}</td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+        <md-tab label="Plan 3">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Plan 3</h1>
+            <table>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">camera_roll </md-icon></td>
+                <td>{{loadList[2].cinema.name}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[2].cinema.address}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[2].cinema.telephone}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[2].cinema.url}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">restaurant_menu </md-icon></td>
+                <td>{{loadList[2].restaurant.name}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">directions </md-icon></td>
+                <td><a href="/transport.html">Trip</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">access_time </md-icon></td>
+                <td>{{loadList[2].session.sessionStartTime}}</td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+        <md-tab label="Plan 4">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Plan 4</h1>
+            <table>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">camera_roll </md-icon></td>
+                <td>{{loadList[3].cinema.name}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[3].cinema.address}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[3].cinema.telephone}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[3].cinema.url}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">restaurant_menu </md-icon></td>
+                <td>{{loadList[3].restaurant.name}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">directions </md-icon></td>
+                <td><a href="/transport.html">Trip</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">access_time </md-icon></td>
+                <td>{{loadList[3].session.sessionStartTime}}</td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+        <md-tab label="Plan 5">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Plan 5</h1>
+            <table>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">camera_roll </md-icon></td>
+                <td>{{loadList[4].cinema.name}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[4].cinema.address}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[4].cinema.telephone}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{loadList[4].cinema.url}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">restaurant_menu </md-icon></td>
+                <td>{{loadList[4].restaurant.name}}</td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">directions </md-icon></td>
+                <td><a href="/transport.html">Trip</a></td>
+              </tr>
+              <tr>
+                <td><md-icon md-font-set="material-icons" style="padding-right:1em">access_time </md-icon></td>
+                <td>{{loadList[4].session.sessionStartTime}}</td>
+              </tr>
+            </table>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>

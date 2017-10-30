@@ -1,0 +1,52 @@
+<div ng-app="FoodCtrl" ng-cloak="" ng-app="locationAnalyticsApp">
+
+<md-dialog aria-label="Mango (Fruit)">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Restaurant Details</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="Diagramcolor">
+      <div class="md-dialog-content" style="width: 800px;">
+        <form name="restaurantDetails">
+            <md-input-container>
+              <input md-input placeholder="Name" value="Hard Rock Cafe">
+            </md-input-container>
+            <div layout="row">
+              <md-input-container flex="80">
+                <input md-input placeholder="Address" value="AMPELMANN Shop am Postdamer Platz, Postdamer Platz 1, 10785 Berlin">
+              </md-input-container>
+            </div>
+            <div layout="row">
+              <md-input-container>
+                <input md-input placeholder="Phone" value="030 23004990">
+              </md-input-container>
+              <md-input-container>
+                <input md-input placeholder="Email" value="hardrock@cafe.com">
+              </md-input-container>
+            </div>
+            <md-input-container>
+              <input md-input placeholder="Hours-open" value="10.00 AM">
+            </md-input-container>
+            <md-input-container>
+              <input md-input placeholder="Hours-close" value="21.00 PM">
+            </md-input-container>
+            <div layout="row">
+              <md-input-container>
+                <input md-input placeholder="Price" value="6 euro - 10 euro">
+              </md-input-container>
+            </div>
+        </form>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()" class="md-primary">
+        Close
+      </md-button>
+    </md-dialog-actions>
+
+</md-dialog>
+</div>

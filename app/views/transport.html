@@ -1,0 +1,226 @@
+<link rel="stylesheet" type="text/css" href="styles/style.css"/>
+
+<style>
+    #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
+
+</style>
+
+<div style="padding: 30px;">
+    <h2>University to Cinema</h2>
+    <div id="map1" style="width: 99%; min-height: 420px;"></div>
+    <div class="clear4"></div>
+
+
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+
+    <table id="datatable_route01" cellpadding="0" cellspacing="0" border="0" class="display fontStd">
+        <thead class="thead">
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Depart</th>
+                <th>Arrive</th>
+                <th>Duration</th>
+                <th>Transport</th>
+                <th>Distance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="rowItem in loadList01">
+                <td class="border" style="">
+                    {{rowItem.from}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.to}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.depart}}
+                </td>
+
+                <td class="border" style="">
+                    {{rowItem.arrive}}
+                </td>
+
+                <td class="border" style="">
+                    {{rowItem.duration}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.transport}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.distance}}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <h2>Cinema to restaurant</h2>
+    <div id="map2" style="width: 99%; min-height: 420px;"></div>
+
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+
+    <table id="datatable_route02" cellpadding="0" cellspacing="0" border="0" class="display fontStd">
+        <thead class="thead">
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Depart</th>
+                <th>Arrive</th>
+                <th>Duration</th>
+                <th>Transport</th>
+                <th>Distance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="rowItem in loadList02">
+                <td class="border" style="">
+                    {{rowItem.from}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.to}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.depart}}
+                </td>
+
+                <td class="border" style="">
+                    {{rowItem.arrive}}
+                </td>
+
+                <td class="border" style="">
+                    {{rowItem.duration}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.transport}}
+                </td>
+                <td class="border" style="">
+                    {{rowItem.distance}}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    
+       <div class="clear4"></div>
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+       <div class="clear4"></div>
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+       <div class="clear4"></div>
+    <div class="clear4"></div>
+    <div class="clear4"></div>
+</div>
+
+<script>
+                    function initMap() {
+                        initMap1();
+                        initMap2();
+                    }
+
+                    function initMap1() {
+                        var directionsService = new google.maps.DirectionsService;
+                        var directionsDisplay = new google.maps.DirectionsRenderer;
+                        var map = new google.maps.Map(document.getElementById('map1'), {
+                            zoom: 7,
+                            center: {lat: 52.512847, lng: 13.320931}
+                        });
+                        directionsDisplay.setMap(map);
+
+                        var origin = new google.maps.LatLng(52.512847, 13.320931);
+                        var destination = new google.maps.LatLng(52.498420, 13.529985);
+
+                        calculateAndDisplayRoute(directionsService, directionsDisplay, origin, destination);
+
+                    }
+
+                    function initMap2() {
+                        var directionsService = new google.maps.DirectionsService;
+                        var directionsDisplay = new google.maps.DirectionsRenderer;
+                        var map = new google.maps.Map(document.getElementById('map2'), {
+                            zoom: 7,
+                            center: {lat: 52.498420, lng: 13.529985}
+                        });
+                        directionsDisplay.setMap(map);
+
+
+                        var origin = new google.maps.LatLng(52.498420, 13.529985);
+                        var destination = new google.maps.LatLng(52.455531, 13.322553);
+
+                        calculateAndDisplayRoute(directionsService, directionsDisplay, origin, destination);
+
+                    }
+
+                    function calculateAndDisplayRoute(directionsService, directionsDisplay, starting, end) {
+                        directionsService.route({
+//            origin: document.getElementById('start').value,
+//            destination: document.getElementById('end').value,
+//            origin: 'Ernst Reuter Platz Berlin',
+//            destination: 'U Tierpark Berlin',
+
+//            origin: new google.maps.LatLng(52.5200, 13.4050),
+//            destination: new google.maps.LatLng(52.5600, 13.4050),
+
+                            origin: starting,
+                            destination: end,
+
+                            travelMode: 'TRANSIT'
+                        }, function (response, status) {
+                            if (status === 'OK') {
+                                directionsDisplay.setDirections(response);
+
+                                $(document).ready(function () {
+                                    $('#datatable_route01').DataTable();
+                                    $('#datatable_route02').DataTable();
+                                });
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                            }
+                        });
+                    }
+</script>
+
+<script>
+
+
+
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeMUax-IkQasbnYWZOI0tjEzu5BS-e53U&callback=initMap">
+</script>
+
+<!--
+
+<script type="application/javascript"
+        src="https://maps.googleapis.com/maps/api/directions/json?origin=Chicago,IL&destination=Los+Angeles,CA&waypoints=Joplin,MO|Oklahoma+City,OK&key=AIzaSyDeMUax-IkQasbnYWZOI0tjEzu5BS-e53U&jsonp=callback">
+</script>
+
+
+<script type="application/javascript">
+function callback(geocoded_waypoints) {
+//console.log( user);
+}
+</script>
+-->

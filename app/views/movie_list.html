@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+ <!DOCTYPE html>
+
+<html lang="en">
+
+
+<div ng-app="MovieCtrl" ng-cloak="" class="carddemoBasicUsage" ng-app="locationAnalyticsApp">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<md-toolbar class="md-accent">
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Results Movie List</h2>
+  </div>
+</md-toolbar>
+
+<md-button class="md-raised md-primary" href="#/index.html">Back</md-button>
+
+
+
+<md-content class="md-padding">
+  <div flex-xs="" flex-gt-xs="40" layout="row">
+
+
+    <md-card md-theme="" md-theme-watch="" ng-repeat="rowItem in loadList| filter: filter1">
+      <md-card-title>
+        <md-card-title-text style="text-align: center; font-size: 10px;">
+          <span class="md-headline" style="line-height: 20px">{{rowItem.title}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="row" layout-align="center">
+
+        <img ng-src="{{rowItem.poster}}" class="md-card-image" alt="lalaland">
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-primary" href="#/moviedetails">Select</md-button>
+
+      </md-card-actions>
+    </md-card>
+
+  </div>
+</md-content>
+
+ <!--  <div flex-xs="" flex-gt-xs="25" layout="column">
+
+
+</div> -->
+
+
+</body>
+</html>
+
+</body>
+</html>

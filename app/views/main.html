@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles/custom.css">
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Main</title>
+</head>
+<body >
+
+<md-content style="background-image: url(../images/berlin.jpg); background-repeat:no-repeat; background-position: center; ">
+  <form>
+    <div layout-gt-sm="column" layout-align="center center" style="min-height: 550px;">
+      <div>
+        <h1 style="color:white">Welcome to Our Night Out party Planner</h1>
+        <h2 style="color:white"> Please fill in the form below! </h2>
+        <div class="container" style="width: 800px;"">
+          <div>
+            <md-input-container>
+              <label>Street</label>
+              <input ng-model="formModel.street" type="text" required>
+            </md-input-container>
+
+            <md-input-container style="margin-left: 65px; color:white;">
+              <label>House No.</label>
+              <input ng-model="formModel.house" type="text" required>
+            </md-input-container>
+
+              <md-input-container style="margin-left: 65px;">
+              <label>Date</label> 
+            <md-datepicker ng-model="formModel.myDate"></md-datepicker>
+              </md-input-container> 
+              
+          </div>
+          <div>
+            <md-input-container>
+              <label>City</label>
+              <input ng-model="formModel.city" type="text" required>
+            </md-input-container>
+
+            <md-input-container style="margin-left: 65px;">
+              <label>Postal Code</label>  
+              <input ng-model="formModel.postalcode" type="number" required>
+              <div ng-messages="formModel.postalCode.$error" role="alert" multiple>
+                <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                  code.
+                </div>
+                <div ng-message="md-maxlength" class="my-message">
+                  Don't use the long version silly...we don't need to be that specific...
+                </div>
+              </div>              
+            </md-input-container>
+            
+            <md-input-container  style="margin-left: 130px;">
+            <label>Cuisines</label>
+            <md-select ng-model="formModel.food" required>
+              <md-option value="American Restaurant">
+              {{"American Food"}}
+              </md-option>
+              <md-option value="German Restaurant">
+              {{"German Restaurant"}}
+              </md-option>
+               <md-option value="Tukish Restaurant">
+              {{"Tukish Restaurant"}}
+              </md-option>
+               <md-option value="Indian Restaurant">
+              {{"Asian Restaurant"}}
+              </md-option>
+               <md-option value="Chinese Restaurant">
+              {{"Chinese Restaurant"}}
+              </md-option>
+               <md-option value="Japanese Restaurant">
+              {{"Japanese Restaurant"}}
+              </md-option>             
+            </md-select>
+            </md-input-container>
+           </div>
+
+            <div>
+              <md-input-container>
+               <h4 style="color:white">Maximum Travel Time</h4>
+             <md-radio-group style="color:white" ng-model="formModel.MaxTravelTime" required>
+               <md-radio-button value="10">10 minutes</md-radio-button>
+               <md-radio-button value="20">20 minutes</md-radio-button>
+               <md-radio-button value="30">30 minutes</md-radio-button>
+              </md-radio-group>
+            </md-input-container>
+          
+           <md-input-container  style="margin-left: 100px;">
+              <h4 style="color:white">Maximum Walking Time</h4>
+               <md-radio-group style="color:white" ng-model="formModel.MaxWalk" required>
+               <md-radio-button value="1">10</md-radio-button>
+               <md-radio-button value="2">20</md-radio-button>
+               <md-radio-button value="3">30</md-radio-button>
+              </md-radio-group>
+            </md-input-container>
+
+            <md-input-container style="margin-left: 150px; font-color: white">
+             <h4 style="color:white"> Preffered Price </h4>
+               <md-radio-group style="color:white" ng-model="formModel.price" required>
+               <md-radio-button value="1">€</md-radio-button>
+               <md-radio-button value="2">€€</md-radio-button>
+               <md-radio-button value="3">€€€</md-radio-button>
+              </md-radio-group>
+            </md-input-container>
+          </div>
+
+      <section layout="row" layout-sm="column" layout-align="left">
+          <md-button type="submit" ng-click="onSubmit()" class="md-raised md-primary">Next</md-button>
+          <md-button type="reset" class="md-raised" ng-click="reset()">Reset
+          </md-button>
+        </section>
+             
+            
+          </div>
+        </div>
+
+       
+      </div>
+
+
+
+    </div>
+  </form>
+</md-content>
+</div>
+
+
+<div ng-repeat="item in data">
+  <!--
+  {{item.genre}}
+  -->
+
+</div>
+</body>
+</html>
